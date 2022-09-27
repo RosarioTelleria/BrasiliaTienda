@@ -33,22 +33,31 @@ namespace BrasiliaTiendaAccesoDato.Data
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
-            if (filter != null)
+            try
             {
-                query = query.Where(filter);
 
-            }
-            if (includeProperties != null)
-            {
-                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+
+                if (filter != null)
                 {
-                    query = query.Include(includeProperty);
+                    query = query.Where(filter);
+
                 }
-            }
-            if (orderBy != null)
+                if (includeProperties != null)
+                {
+                    foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        query = query.Include(includeProperty);
+                    }
+                }
+                if (orderBy != null)
+                {
+                    return orderBy(query).ToList();
+                }
+            } catch (Exception ex)
             {
-                return orderBy(query).ToList();
+                query = null;
             }
+
             return query.ToList();
         }
 

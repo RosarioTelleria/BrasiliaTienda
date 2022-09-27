@@ -32,6 +32,7 @@ namespace BrasiliaTiendaAccesoDato.Data
             var objDesdeDb = _db.Categorias.FirstOrDefault(s => s.Id == categoria.Id);
             objDesdeDb.Nombre = categoria.Nombre;
             objDesdeDb.Orden = categoria.Orden;
+
             _db.SaveChanges();
         }
     }
