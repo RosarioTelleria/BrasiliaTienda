@@ -1,4 +1,6 @@
-﻿using BrasiliaTiendaAccesoDato.Data.Repository;
+﻿using BrasiliaTienda.Models;
+using BrasiliaTiendaAccesoDato.Data.Repository;
+using BrasiliaTiendaModelo;
 using BrasiliaTiendaModelo.Models;
 using BrasiliaTiendaModelo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +21,12 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
         public IActionResult Index()
         {
            
-        return View();
+         
+            return View ();
 
         }
         [HttpGet]
-        public ActionResult create()
+        public ActionResult Create()
         {
             ArticuloVM artivm = new ArticuloVM()
             {
