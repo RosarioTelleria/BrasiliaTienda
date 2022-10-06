@@ -25,7 +25,7 @@
                     <label asp-for="Articulo.Descripcion"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Articulo.Descripcion" class="form-control"  style="height:300px"/></textarea>
+                    <textarea asp-for="Articulo.Descripcion" class="form-control"  style="height:300px"/></textarea>
                     <span asp-validation-for="Articulo.Descripcion" class="text-danger"></span>
                 </div>
             </div>
@@ -58,3 +58,16 @@
         </div>
     </div>
 </form>
+
+@section scripts{
+    <script src="https://cdn.tiny.cloud/1/sm21p9ou6y7e9on4zn1hmepv6rydadx0oo7k7b4gf76itm7l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+    </script>
+}
+
+    
