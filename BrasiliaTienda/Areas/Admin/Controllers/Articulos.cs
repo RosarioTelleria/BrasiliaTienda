@@ -64,7 +64,8 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            return View();
+            artiVM.ListaCategorias = _contenedorTrabajo.Categoria.GetListaCategoria();
+            return View(artiVM);
         }
         #region 
         [HttpGet]
