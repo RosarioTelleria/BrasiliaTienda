@@ -5,6 +5,7 @@ using BrasiliaTiendaModelo.Models;
 using BrasiliaTiendaModelo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.Hosting.Internal;
 
 namespace BrasiliaTienda.Areas.Admin.Controllers
@@ -68,6 +69,24 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
             return View(artiVM);
         }
         #region 
+        
+      
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            ArticuloVM artivm = new ArticuloVM()
+            {
+                Articulo = new Models.Articulo(),
+                ListaCategorias = _contenedorTrabajo.Categoria.GetListaCategoria()
+            };
+            if (id != null)
+            {
+                artivm.Articulo = _contenedorTrabajo.Articulo.Get(id.GetValueOrDefault());
+            }
+            return View(artivm);
+         }
+
+
         [HttpGet]
         public IActionResult GetAll()
         {

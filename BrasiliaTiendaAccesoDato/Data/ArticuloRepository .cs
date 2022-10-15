@@ -19,7 +19,10 @@ namespace BrasiliaTiendaAccesoDato.Data
             _db = db;
         }
 
-        
+        public Articulo Get(object value)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update(Articulo articulo)
         {
