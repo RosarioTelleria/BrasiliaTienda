@@ -11,7 +11,6 @@ namespace BrasiliaTiendaAccesoDato.Data.Repository
 {
     public interface IArticuloRepository : IRepository<Articulo>
     {
-        Articulo Get(object value);
 
         void Update(Articulo articulo);
     }

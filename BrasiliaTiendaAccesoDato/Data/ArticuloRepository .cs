@@ -19,10 +19,6 @@ namespace BrasiliaTiendaAccesoDato.Data
             _db = db;
         }
 
-        public Articulo Get(object value)
-        {
-            throw new NotImplementedException();
-        }
 
         public void Update(Articulo articulo)
         {
@@ -31,10 +27,6 @@ namespace BrasiliaTiendaAccesoDato.Data
             objDesdeDb.Descripcion = articulo.Descripcion;
             objDesdeDb.UrlImagen = articulo.UrlImagen;
             objDesdeDb.CategoriaId= articulo.CategoriaId;
-
-
-
-
 
 
             _db.SaveChanges();

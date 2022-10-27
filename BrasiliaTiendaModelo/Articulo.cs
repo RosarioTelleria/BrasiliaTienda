@@ -18,23 +18,23 @@ namespace BrasiliaTiendaModelo
 
         [Required (ErrorMessage ="El nombre es obligatorio")]
         [Display(Name ="Nombre del Articulo")]
-        public string? Nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Required(ErrorMessage = "La descripcion es obligatorio")]
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
 
         [Display(Name = "Fecha de Creacion")]
-        public string? FechaCreacion { get; set; }
+        public string FechaCreacion { get; set; }
 
         [DataType(DataType.ImageUrl)]
         [Display(Name = "Imagen")]
-        public string? UrlImagen { get; set; }
+        public string UrlImagen { get; set; }
 
         [Required]
         public int CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
-        public Categoria? Categoria { get; set; }
+        public Categoria Categoria { get; set; }
 
 
 
