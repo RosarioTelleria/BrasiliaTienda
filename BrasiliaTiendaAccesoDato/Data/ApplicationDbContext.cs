@@ -16,5 +16,7 @@ namespace BrasiliaTiendaAccesoDato.Data
 
         public DbSet<Articulo> Articulo { get; set; }
 
+        public DbSet<Slider> Slider { get; set; }
+
     }
 }

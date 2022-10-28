@@ -9,9 +9,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.Hosting.Internal;
 using NuGet.Protocol.Plugins;
+namespace BrasiliaTienda.Areas.Admin.Controllers;
 
-namespace BrasiliaTienda.Areas.Admin.Controllers
-{
     [Area("Admin")]
     public class ArticulosController : Controller
     {
@@ -181,4 +180,4 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
 
         #endregion
     }
-}
+

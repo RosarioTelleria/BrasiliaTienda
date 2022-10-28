@@ -15,7 +15,7 @@ namespace BrasiliaTiendaModelo.Models
 
         [Required(ErrorMessage = "Ingresa Nombre a la Categoria")]
         [Display(Name = "Nombre Categoria")]
-        public string? Nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Required]
         [Display(Name = "Orden de Visualizacion")]
