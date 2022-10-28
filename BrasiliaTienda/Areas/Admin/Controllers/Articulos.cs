@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.Hosting.Internal;
+using NuGet.Protocol.Plugins;
 
 namespace BrasiliaTienda.Areas.Admin.Controllers
 {
@@ -151,6 +152,32 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
 
             return Json(new { data = _contenedorTrabajo.Articulo.GetAll(includeProperties:"Categoria") });
         }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var articuloDesdeDb = _contenedorTrabajo.Articulo.Get(id);
+            string rutaDirectorioPrincipal = _hostingEnvironment.WebRootPath;
+            var rutaImagen = Path.Combine(rutaDirectorioPrincipal, articuloDesdeDb.UrlImagen.TrimStart('\\'));
+
+            if (System.IO.File.Exists(rutaImagen))
+            {
+                System.IO.File.Delete(rutaImagen);
+            }
+
+            if(articuloDesdeDb==null)
+            {
+                return Json(new {success= false , message="Error en el borrado de articulo"});
+
+            }
+
+           
+            
+            _contenedorTrabajo.Articulo.Remove(articuloDesdeDb);
+            _contenedorTrabajo.Save();
+
+            return Json(new { success = true, message = "Articulo borrado correctamente" });
+        }
+
 
         #endregion
     }
