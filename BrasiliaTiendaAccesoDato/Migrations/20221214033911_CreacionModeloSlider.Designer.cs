@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrasiliaTiendaAccesoDato.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221028223717_CreacionModeloSlider")]
+    [Migration("20221214033911_CreacionModeloSlider")]
     partial class CreacionModeloSlider
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
