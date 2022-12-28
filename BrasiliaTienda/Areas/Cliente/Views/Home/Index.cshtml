@@ -1,8 +1,38 @@
-﻿@{
+﻿@model BrasiliaTiendaModelo.ViewModels.HomeVM
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<header>
+
+ <div id="carouselExampleInidicateors"  class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner align-items-center">
+            @{
+                int cont = 0;
+            }
+            @foreach(var item in Model.Slider)
+            {
+                var itemDinamico = cont++ == 0 ? "item active" : "item";
+                if(item.Estado== true)
+                {
+                    <div class=" carousel-item @itemDinamico align-content-center">
+                    <center> <img  src="@Url.Content(item.UrlImagen)" /></center>
+                    <h1 class=" text-dark text-center"> @Html.Raw(item.Nombre)</h1>
+                    </div>
+                }
+            }
+  
+  </div>
+        <button class="carousel-item" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span  class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+ </div>
+  
+</header>

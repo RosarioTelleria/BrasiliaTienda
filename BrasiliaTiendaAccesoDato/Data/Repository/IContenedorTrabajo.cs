@@ -10,6 +10,8 @@ namespace BrasiliaTiendaAccesoDato.Data.Repository
     {
         ICategoriaRepository Categoria { get; }
         IArticuloRepository Articulo { get; }
+        ISlidersRepository Slider { get; }
+
 
         void Save();
 

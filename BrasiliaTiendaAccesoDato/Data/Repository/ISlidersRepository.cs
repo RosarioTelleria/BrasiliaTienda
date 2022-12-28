@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BrasiliaTiendaAccesoDato.Data.Repository
 {
-    public interface ISliderRepository : IRepository<Slider>
+    public interface ISlidersRepository : IRepository<Slider>
     {
 
-        void Update(Slider slider);
+        void Update(Slider sliders);
     }
 }
