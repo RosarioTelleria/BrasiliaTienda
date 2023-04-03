@@ -9,6 +9,7 @@ namespace BrasiliaTiendaModelo
 {
     public  class Usuarios
     {
+        public DateTime lockoutEnd;
 
         [Key]
         public string IdUsuario { get; set; }

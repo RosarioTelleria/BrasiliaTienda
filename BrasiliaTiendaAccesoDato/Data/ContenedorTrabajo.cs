@@ -1,4 +1,5 @@
 ﻿using BrasiliaTiendaAccesoDato.Data.Repository;
+using BrasiliaTiendaModelo;
 using BrasiliaTiendaModelo.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace BrasiliaTiendaAccesoDato.Data
             Categoria = new CategoriaRepository(_db);
             Articulo = new ArticuloRepository(_db);
             Slider = new SlidersRepository(_db);
+            usuarios = new UsuarioRepository(_db);
 
 
         }
@@ -25,7 +27,7 @@ namespace BrasiliaTiendaAccesoDato.Data
         public IArticuloRepository Articulo { get; private set; }
 
         public ISlidersRepository Slider { get; private set; }
-
+        public IUsuariosRepository usuarios { get; private set; }
 
         public void Dispose()
         {

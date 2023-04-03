@@ -22,11 +22,16 @@ namespace BrasiliaTiendaAccesoDato.Data.Repository
         public void BloquearUsuarios(string idUsuario)
         {
             var usuarioDesdedb = _db.Usuario.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            usuarioDesdedb.lockoutEnd = DateTime.Now.AddYears(100);
+            _db.SaveChanges();
+
         }
 
-        public void DesbloquearUsuario(string IdUsuario)
+        public void DesbloquearUsuario(string idUsuario)
         {
-            throw new NotImplementedException();
+            var usuarioDesdedb = _db.Usuario.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            usuarioDesdedb.lockoutEnd = DateTime.Now;
+            _db.SaveChanges();
         }
     }
 }

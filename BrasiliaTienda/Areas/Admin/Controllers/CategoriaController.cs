@@ -1,8 +1,8 @@
-﻿using BrasiliaTiendaAccesoDato.Data.Repository;
+﻿using BrasiliaTiendaAccesoDato.Data;
+using BrasiliaTiendaAccesoDato.Data.Repository;
 using BrasiliaTiendaModelo.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.DotNet.Scaffolding.Shared.Messaging;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Security.Claims;
 
 namespace BrasiliaTienda.Areas.Admin.Controllers
 {
@@ -18,7 +18,10 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            //listar en la regilla todos los usuarios ecepto el mio
+            var claimIdentity = (ClaimIdentity)this.User.Identity;
+            var usuarioActual = ClaimIdentity.findfirst(ClaimTypes.NameIdentifier);
+            return Json(new { });//View(_contenedorTrabajo.usuarios.GetAll(u=>u.IdUsuario != usuarioActual.Value));
         }
 
         [HttpGet]
@@ -86,5 +89,16 @@ namespace BrasiliaTienda.Areas.Admin.Controllers
             return Json(new { success = true, message = "Categoria borrada correctamente" });
         }
         #endregion
+    }
+}
+
+namespace BrasiliaTienda
+{
+    class ClaimIdentity
+    {
+        internal static object findfirst(string nameIdentifier)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
